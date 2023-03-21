@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RBuilders</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TUPApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand text-uppercase fw-bolder" asp-area="" asp-controller="Home" asp-action="Index" style="letter-spacing: 5px">&#60;RBuilder/&#62;</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item text-white">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Resume</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Sample" asp-action="Index">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tables
+                            </a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="Students" asp-action="Index">Students</a></li>
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="Skills" asp-action="Index">Skills</a></li>
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="EducationalBackgrounds" asp-action="Index">Education</a></li>
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="Experiences" asp-action="Index">Experiences</a></li>
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="TrainingAttendeds" asp-action="Index">Trainings</a></li>
+                                <li><a class="nav-link text-light" asp-area="" asp-controller="EmergencyContacts" asp-action="Index">Contacts</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - TUPApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

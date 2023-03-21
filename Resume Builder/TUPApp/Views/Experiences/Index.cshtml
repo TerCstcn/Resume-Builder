@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TUPApp.Models.Experience>
+
+@{
+    ViewData["Title"] = "Experiences";
+}
+
+<h1>Experiences</h1>
+
+<p>
+    <button type="button" class="btn btn-success"><a asp-action="Create" class="text-decoration-none text-white"><i class="bi bi-plus-lg"></i></a></button>
+</p>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>    
+            <th>
+                @Html.DisplayNameFor(model => model.JobPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobPosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstName)
+                @Html.DisplayFor(modelItem => item.Student.LastName)
+            </td>
+            <td class="text-center">
+                <button type="button" class="btn btn-primary mx-2"><a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none text-white"><i class="bi bi-pencil-square"></i></a></button>
+                <button type="button" class="btn btn-warning mx-2"><a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none text-white"><i class="bi bi-eye-fill"></i></a></button>
+                <button type="button" class="btn btn-danger mx-2"><a asp-action="Delete" asp-route-id="@item.Id" class="text-decoration-none text-white"><i class="bi bi-trash3-fill"></i></a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

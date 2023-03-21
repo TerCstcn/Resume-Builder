@@ -1,0 +1,106 @@
+﻿@model TUPApp.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="fw-bolder fs-5 text-center my-4" style="letter-spacing:3px">GENERATED RESUME</div>
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+                <div class="row">
+                    <h1 class="text-center text-uppercase" style="letter-spacing: 3px">@Model.FirstName @Model.LastName </h1>
+                    <hr />
+                    <div class="row col-12 justify-content-center">
+                        <div class="col-12"><h5 class="text-uppercase" style="letter-spacing:4px">Objectives</h5></div>
+                        <div class="col-11 align-self-center"><p style="text-align: justify">Secure a responsible career opportunity to fully utilize my training and skills, while making a significant contribution to the success of the company.</p></div>
+                    </div>
+                    <hr />
+                    <div class="col-12">
+                        <h5 class="text-uppercase" style="letter-spacing: 4px">Personal Details</h5>
+                        <div class="row justify-content-around">
+                            <div class="col-2">
+                                <label class="fw-bold">First Name</label>
+                                <p>@Model.FirstName</p>
+                            </div>
+                            <div class="col-2">
+                                <label class="fw-bold">Middle Name</label>
+                                <p>@Model.MiddleName</p>
+                            </div>
+                            <div class="col-2">
+                                <label class="fw-bold">Last Name</label>
+                                <p>@Model.LastName</p>
+                            </div>
+                            <div class="col-2">
+                                <label class="fw-bold">Address</label>
+                                <p>@Model.Address</p>
+                            </div>
+                            <div class="col-2">
+                                <label class="fw-bold">Contact</label>
+                                <p>@Model.Contact</p>
+                            </div>
+                            <div class="col-2">
+                                <label class="fw-bold">Email</label>
+                                <a href="mailto: @Model.Email" class="text-decoration-none text-black">@Model.Email</a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="col-6 ">
+                        <h5 class="text-uppercase" style="letter-spacing: 4px">Education</h5>
+                        <ul class="list-unstyled">
+                            @foreach (var item in Model.Education)
+                            {
+                                <li class="py-2">@item.School <span class="float-end text-black-50">- @item.Year</span></li>
+                            }
+                        </ul>   
+                    </div>
+                    <div class="col-6">
+                        <h5 class="text-uppercase" style="letter-spacing: 4px">Experiences</h5>
+                        <ul class="list-unstyled">
+                            @foreach (var item in Model.Experiences)
+                            {
+                                <li class="py-2">@item.JobPosition <span class="float-end text-black-50">- @item.Year</span></li>
+                            }
+                        </ul>
+                    </div>
+                    <hr />
+                    <div class="col-6">
+                        <h5 class="text-uppercase" style="letter-spacing: 4px">Skills</h5>
+                        <ul class="row">
+                            @foreach (var item in Model.Skills)
+                            {
+                                <li class="col-sm-6 py-2">@item.SkillName</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h5 class="text-uppercase" style="letter-spacing: 4px">Trainings Attended</h5>
+                        <ul class="list-unstyled">
+                            @foreach (var item in Model.Trainings)
+                            {
+                                <li class="py-2"><span class="fw-bold">@item.TrainingName</span> <span class="float-end text-black-50">- @item.Year</span>
+                                    <ul class="list-unstyled">
+                                        <li class="fst-italic">@item.Address</li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <hr />
+                    <div class="col-12 text-center">
+                        <h5 class="text-uppercase" style="letter-spacing: 4px">Contact</h5>
+                        <ul class="list-unstyled">
+                            @foreach (var item in Model.Emergency)
+                            {
+                                <li class="py-2"><span class="fw-bold">@item.FirstName @item.LastName</span> - <a href="tel:@item.Contact" style="text-decoration: none; color: black">@item.Contact</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
